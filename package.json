@@ -12,8 +12,10 @@
   "dependencies": {
     "@clerk/clerk-js": "^4.38.4",
     "@clerk/clerk-react": "^4.15.3",
-    "react": "^18.2.0",
     "@supabase/supabase-js": "^1.35.6",
+    "byte-size": "^8.1.1",
+    "js-file-download": "^0.4.12",
+    "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.11.2"
