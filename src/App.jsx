@@ -8,8 +8,9 @@ import { AiFillGithub } from 'react-icons/ai'
 import './App.css'
 import { BrowserRouter, Router, Routes, Route } from 'react-router-dom'
 import Navbar from './Components/Navbar.jsx'
-import Home from './Components/Home';
+import Home from './pages/Home';
 import BookShow from './Components/BookShow';
+import Books from './pages/Books';
 
 function App() {
 
@@ -28,7 +29,7 @@ function App() {
         <Navbar />
       </div>
       <Routes>
-        <Route path='/books' element={<BookShow />} />
+        <Route path='/books' element={<Books />} />
         <Route path='/' element={<Home />} />
 
       </Routes>

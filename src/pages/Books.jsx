@@ -5,7 +5,7 @@ import fileDownload from "js-file-download";
 
 import byteSize from "byte-size";
 
-const Home = () => {
+const Books = () => {
   const [files, setFiles] = useState([])
   const [error  , setError] = useState()
   const [link, setLink] = useState()
@@ -66,7 +66,7 @@ const Home = () => {
       {files.map((file) => {
         return (
           <div key={file.id}>
-            <h1>NAME: {file.name}</h1>
+            <h1>NAME: {file.name.slice(0 , file.name.indexOf('.'))}</h1>
             <p>Created at: {new Date(file.created_at).toString()}</p>
             <p>Size: {byteSize(file.metadata.size).toString()}</p>
             <div className="my-3">
@@ -81,4 +81,4 @@ const Home = () => {
     </div>
   )
 }
-export default Home
+export default Books
