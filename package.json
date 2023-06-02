@@ -15,10 +15,13 @@
     "@heroicons/react": "^2.0.18",
     "@supabase/supabase-js": "^1.35.6",
     "byte-size": "^8.1.1",
+    "dayjs": "^1.11.7",
     "js-file-download": "^0.4.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
+    "react-loader-spinner": "^5.3.4",
+    "react-network-detect": "^1.0.11",
     "react-router-dom": "^6.11.2"
   },
   "devDependencies": {
