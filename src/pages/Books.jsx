@@ -8,12 +8,13 @@ import byteSize from "byte-size";
 // import {relativeTime} from 'dayjs/esm/plugin/relativeTime'
 import { useNavigate } from "react-router-dom";
 import SkeletonLoader from "../Components/Skeleton";
-import { useUser } from "@clerk/clerk-react";
+import { SignIn, useUser } from "@clerk/clerk-react";
 import FallBack from "../Components/AuthFallBack";
 
 import { ToastContainer , toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import BookCard from "../Components/BookCard";
+
 
 dayjs.extend(relativeTime)
 
@@ -107,15 +108,7 @@ const Books = () => {
   }
 
   if(!isOnline){
-    return <div className="flex flex-col justify-center items-center my-10">
-      <p className="text-center">❌  Please Check Your Newtwork Connection</p>
-      <a className="my-2 cursor-pointer rounded-md bg-black px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              onClick={() => navigate('/books') }
-              >
-                Reload
-              </a>
-    
-    </div>
+    return <FallBack />
   }
   
   if(loading) {
@@ -138,7 +131,7 @@ const Books = () => {
   }
   
   if(user && !user.isSignedIn){
-    return <FallBack/>
+    return <div className='flex justify-center items-center my-10'><SignIn /></div>
   }
   // if(fileLoader){
   //   return <div><ToastContainer /></div>
@@ -228,7 +221,11 @@ const Books = () => {
      
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2  lg:grid-col-2  xl:grid-cols-3">
 
-      
+      {filtered.length == 0 && (
+        <div className="my-10">
+          <h1 className=" absolute left-1/3">😟 Sorry, It seems like we could not find what you looking for :( </h1>
+        </div>
+      )}
       {filtered.map((file) => {
         return (
           <BookCard file={file} key={file.id} />
