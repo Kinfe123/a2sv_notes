@@ -14,6 +14,8 @@ import FallBack from "../Components/AuthFallBack";
 import { ToastContainer , toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import BookCard from "../Components/BookCard";
+import { parse } from "postcss";
+import AllowedUser from "../Components/AllowedUser";
 
 
 dayjs.extend(relativeTime)
@@ -26,7 +28,7 @@ const Books = () => {
   const [fileLoader , setFileLoader] = useState(false)
   const [search , setSearch] = useState('')
   const navigate = useNavigate()
-
+   
 
 
   const fileRef = supabase.storage.from('test')
@@ -130,9 +132,18 @@ const Books = () => {
 
   }
   
+  const parsed = user.user.emailAddresses[0].emailAddress
+  const indexOf = parsed.indexOf("@")
+  const organizationEmail = parsed.slice(indexOf + 1 , parsed.length)
   if(user && !user.isSignedIn){
     return <div className='flex justify-center items-center my-10'><SignIn /></div>
   }
+
+  else if(user && organizationEmail!="a2v.org"){
+    return <AllowedUser />
+    
+  }
+
   // if(fileLoader){
   //   return <div><ToastContainer /></div>
   // }
