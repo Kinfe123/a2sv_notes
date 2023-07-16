@@ -38,7 +38,7 @@ const Books = () => {
        setLoading(true)
    
       const datas = await fileRef.list()
-      console.log('Thee fetched: ', datas)
+      // console.log('Thee fetched: ', datas)
       const { data, error } = datas
 
 
@@ -135,11 +135,13 @@ const Books = () => {
   const parsed = user.user.emailAddresses[0].emailAddress
   const indexOf = parsed.indexOf("@")
   const organizationEmail = parsed.slice(indexOf + 1 , parsed.length)
+
+
   if(user && !user.isSignedIn){
     return <div className='flex justify-center items-center my-10'><SignIn /></div>
   }
 
-  else if(user && organizationEmail!="a2v.org"){
+   if(user && organizationEmail !== "a2sv.org"){
     return <AllowedUser />
     
   }
