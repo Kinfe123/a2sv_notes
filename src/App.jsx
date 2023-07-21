@@ -11,6 +11,8 @@ import Navbar from './Components/Navbar.jsx'
 import Home from './pages/Home';
 import BookShow from './Components/BookShow';
 import Books from './pages/Books';
+import Dashboard from './pages/Dashboard';
+import AdminCtx from './hooks/adminContext';
 
 function App() {
 
@@ -31,6 +33,14 @@ function App() {
       <Routes>
         <Route path='/books' element={<Books />} />
         <Route path='/' element={<Home />} />
+        
+
+          <Route path='/dashboard' element={
+            <AdminCtx.Provider value={user}>
+              <Dashboard />
+            </AdminCtx.Provider>
+          }/>
+        
 
       </Routes>
 
