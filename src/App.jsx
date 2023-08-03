@@ -13,6 +13,7 @@ import BookShow from './Components/BookShow';
 import Books from './pages/Books';
 import Dashboard from './pages/Dashboard';
 import AdminCtx from './hooks/adminContext';
+import Jobs from './pages/Jobs'
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
       <Routes>
         <Route path='/books' element={<Books />} />
         <Route path='/' element={<Home />} />
+        <Route path='/jobs' element={<Jobs/>} />
         
 
           <Route path='/dashboard' element={
