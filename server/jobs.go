@@ -23,10 +23,10 @@ type Job struct {
 
 func main() {
 
-	err := godotenv.Load()
-    if err != nil {
-        log.Fatalf("Error loading .env file: %s", err)
-    }
+	// err := godotenv.Load()
+    // if err != nil {
+    //     log.Fatalf("Error loading .env file: %s", err)
+    // }
 
     // Get an environment variable
     port := os.Getenv("PORT")
