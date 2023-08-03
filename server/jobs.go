@@ -5,7 +5,9 @@ import (
 	// "fmt"
 	"io/ioutil"
 	"log"
+	"os"
 	"net/http"
+	"github.com/joho/godotenv"
 )
 
 // Define a struct to represent the job data
@@ -17,9 +19,25 @@ type Job struct {
 	Date 		string `json:"date_posted"`
 }
 
+
+
 func main() {
+
+	err := godotenv.Load()
+    if err != nil {
+        log.Fatalf("Error loading .env file: %s", err)
+    }
+
+    // Get an environment variable
+    port := os.Getenv("PORT")
+	// print(port)
 	http.HandleFunc("/jobs", handleJobs)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	// port := os.Getenv("PORT")
+	// print("The port: " + port)
+	port_def := ":" + port
+	// print(port_def)
+
+	log.Fatal(http.ListenAndServe(port_def, nil))
 }
 
 func handleJobs(w http.ResponseWriter, r *http.Request) {
