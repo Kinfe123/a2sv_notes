@@ -42,6 +42,10 @@ func main() {
 
 func handleJobs(w http.ResponseWriter, r *http.Request) {
 	// Read the JSON file containing job data
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+    w.Header().Set("Access-Control-Allow-Methods", "GET")
+    w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
 	filePath := "jobs.json"
 	data, err := ioutil.ReadFile(filePath)
 	if err != nil {
