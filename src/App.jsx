@@ -14,6 +14,7 @@ import Books from './pages/Books';
 import Dashboard from './pages/Dashboard';
 import AdminCtx from './hooks/adminContext';
 import Jobs from './pages/Jobs'
+import ComingSoon from './pages/ComingSoon'
 
 function App() {
 
@@ -42,7 +43,7 @@ function App() {
               <Dashboard />
             </AdminCtx.Provider>
           }/>
-        
+        <Route path='*' element={<ComingSoon />} /> 
 
       </Routes>
 
