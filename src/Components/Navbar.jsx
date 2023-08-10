@@ -11,7 +11,7 @@ const Navbar = () => {
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <div className="text-xl text-blue-500 font-bold">
-            <h1>A2SVians Book</h1>
+            <h1 className="cursor-pointer " onClick={() => navigate('/')}>Ready</h1>
 
           </div>
           <div className="flex md:order-2">

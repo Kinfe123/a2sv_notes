@@ -21,7 +21,7 @@ const Jobs = () => {
              const res = await fetched.json()
              setJobs(res)
              
-            //  console.log(res)
+     
            }catch(e) {
             console.log(e)
 
@@ -132,7 +132,7 @@ const Jobs = () => {
 
           return (
             <div className=''>
-              <JobCard job={job} key={job.application_link} />
+              <JobCard key={job.application_link} job={job}  />
             </div>
             
       
