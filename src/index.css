@@ -2,3 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+.magic {
+    @apply inline-block relative;
+  }
+  .magicStar {
+    @apply animate-[scale_700ms_ease_forwards] block h-[var(--size)] left-[var(--star-left)] absolute top-[var(--star-top)] w-[var(--size)];
+    --size: clamp(20px, 1.5vw, 30px);
+  }
+  .magicStar > svg {
+    @apply animate-[rotate_1000ms_linear_infinite] block opacity-70;
+  }
+  .magicStar > svg > path {
+    @apply fill-[#a912d3];
+  }
+  .magicText {
+    @apply font-[bolder] animate-[background-pan_3s_linear_infinite] bg-[200%] text-[50px] whitespace-nowrap;
+    /* font-family: monospace; */
+    font-family: unset;
+    
+    --purple: rgb(123, 31, 162);
+    --violet: rgb(103, 58, 183);
+    --pink: rgb(143, 183, 244);
+    background: linear-gradient(
+      to right,
+      var(--purple),
+      var(--violet),
+      var(--pink),
+      var(--purple)
+    );
+    -webkit-background-clip: text;
+    /* height: 100%; */
+    -webkit-text-fill-color: transparent;
+  }
+  .magicText2 {
+    @apply animate-[background-pan_3s_linear_infinite] bg-[200%] whitespace-nowrap;
+    --purple: rgb(195, 12, 223);
+    --violet: rgb(82, 5, 95);
+    --pink: rgb(230, 175, 55);
+    background: linear-gradient(
+      to right,
+      var(--purple),
+      var(--violet),
+      var(--pink),
+      var(--purple)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  

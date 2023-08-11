@@ -15,6 +15,7 @@ import Dashboard from './pages/Dashboard';
 import AdminCtx from './hooks/adminContext';
 import Jobs from './pages/Jobs'
 import ComingSoon from './pages/ComingSoon'
+import Footer from './Components/Footer';
 
 function App() {
 
@@ -46,6 +47,8 @@ function App() {
         <Route path='*' element={<ComingSoon />} /> 
 
       </Routes>
+
+      <Footer />
 
     </BrowserRouter>
   )
