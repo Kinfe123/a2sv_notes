@@ -1,14 +1,14 @@
 import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/react/24/outline'
-
+import {HelpingHand , Map} from 'lucide-react'
 const features = [
   {
-    name: 'Visually Engaging',
+    name: 'Explore Job Opportunities',
     description:
       'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
-    icon: CloudArrowUpIcon,
+    icon: Map,
   },
   {
-    name: "Interactive Modules",
+    name: "Unlock Your Feature",
     description:
       'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
     icon: LockClosedIcon,
@@ -23,7 +23,7 @@ const features = [
     name: 'Backed By Awesome References',
     description:
       'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
-    icon: FingerPrintIcon,
+    icon: HelpingHand,
   },
 ]
 

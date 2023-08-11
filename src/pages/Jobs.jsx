@@ -21,7 +21,7 @@ const Jobs = () => {
              const res = await fetched.json()
              setJobs(res)
              
-            //  console.log(res)
+     
            }catch(e) {
             console.log(e)
 
@@ -40,7 +40,7 @@ const Jobs = () => {
         <>
 
         <div>
-          <h1 className="m-10 text-center mb-4 text-3xl font-extrabold text-gray-900 dark:text-black md:text-5xl lg:text-6xl">
+          <h1 className="m-10 mt-32 text-center mb-4 text-3xl font-extrabold text-gray-900 dark:text-black md:text-5xl lg:text-6xl">
         <span className=" text-center text-transparent bg-clip-text bg-gradient-to-r to-indigo-600 from-sky-400">
           Explore Opportunies 
         </span>{" "}
@@ -122,7 +122,7 @@ const Jobs = () => {
 
      
 
-      {filter.length == 0 && (
+      {!loading && filter.length == 0 && (
         <div className="my-10">
           <h1 className=" absolute left-1/3">😟 Sorry, It seems like we could not find what you looking for :( </h1>
         </div>
@@ -132,7 +132,7 @@ const Jobs = () => {
 
           return (
             <div className=''>
-              <JobCard job={job} key={job.application_link} />
+              <JobCard key={job.application_link} job={job}  />
             </div>
             
       

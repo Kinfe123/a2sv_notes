@@ -16,6 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import BookCard from "../Components/BookCard";
 import { parse } from "postcss";
 import AllowedUser from "../Components/AllowedUser";
+import SignInFallback from "../Components/SignInFallBack";
 
 
 dayjs.extend(relativeTime)
@@ -108,7 +109,9 @@ const Books = () => {
     //href={fileRef.getPublicUrl(file.name).data.publicURL}
 
   }
-
+  if(!user.isSignedIn) {
+    return <SignInFallback />
+  }
   if(!isOnline){
     return <FallBack />
   }
