@@ -17,6 +17,7 @@ import BookCard from "../Components/BookCard";
 import { parse } from "postcss";
 import AllowedUser from "../Components/AllowedUser";
 import SignInFallback from "../Components/SignInFallBack";
+import {Helmet} from 'react-helmet'
 
 
 dayjs.extend(relativeTime)
@@ -29,7 +30,7 @@ const Books = () => {
   const [fileLoader , setFileLoader] = useState(false)
   const [search , setSearch] = useState('')
   const navigate = useNavigate()
-   
+
 
 
   const fileRef = supabase.storage.from('test')
@@ -37,7 +38,7 @@ const Books = () => {
   useEffect(() => {
     const fetchData = async () => {
        setLoading(true)
-   
+
       const datas = await fileRef.list()
       // console.log('Thee fetched: ', datas)
       const { data, error } = datas
@@ -46,31 +47,31 @@ const Books = () => {
       setFiles(data)
       if(data || error)  {
         setLoading(false)
-        
+
       }
 
 
 
-      
-      
-      
+
+
+
     }
-  
+
     fetchData()
   }, [])
   const filtered = files.filter(file => file.name.slice(0 , file.name.indexOf('.')).toLowerCase().includes(search.toLowerCase()))
 
   // const filtered = files.filter(file => file.name.toLowerCase().includes(search.toLowerCase()))
-  
+
   const user = useUser()
 
   const {isOnline} = useOnlineEffect()
-  
+
   const handleClick = async (file) => {
     setFileLoader(true)
-  
-      
-        
+
+
+
       try {
         toast(`⬇ Downloading ${file.name} !`, {
           position: "top-right",
@@ -82,7 +83,7 @@ const Books = () => {
           progress: undefined,
           theme: "light",
           });
-        
+
           const res = await fileRef.download(file.name)
 
           const url = window.URL.createObjectURL(new Blob([res.data]))
@@ -115,7 +116,7 @@ const Books = () => {
   if(!isOnline){
     return <FallBack />
   }
-  
+
   if(loading) {
 
     <div>
@@ -130,11 +131,11 @@ const Books = () => {
           <span className="sr-only">Loading...</span> */
           </div>
 
-      
+
     </div>
 
   }
-  
+
   const parsed = user.user.emailAddresses[0].emailAddress
   const indexOf = parsed.indexOf("@")
   const organizationEmail = parsed.slice(indexOf + 1 , parsed.length)
@@ -146,7 +147,7 @@ const Books = () => {
 
    if(user && organizationEmail !== "a2sv.org"){
     return <AllowedUser />
-    
+
   }
 
   // if(fileLoader){
@@ -154,16 +155,22 @@ const Books = () => {
   // }
   return (
     <div>
+
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Explore Books from A2SV</title>
+                <link rel="canonical" href="https://a2sv-notes.vercel.app/books" />
+            </Helmet>
       {fileLoader && (<ToastContainer />)}
-  
-      <h1 className="m-10 text-center mb-4 text-3xl font-extrabold text-gray-900 dark:text-black md:text-5xl lg:text-6xl">
+
+      <h1 className="m-10 mt-32 text-center mb-4 text-3xl font-extrabold text-gray-900 dark:text-black md:text-5xl lg:text-6xl">
         <span className=" text-center text-transparent bg-clip-text bg-gradient-to-r to-indigo-600 from-sky-400">
           Explore Books
         </span>{" "}
         .
       </h1>
       <p className="my-2 text-center text-lg font-normal text-indigo-600 lg:text-xl dark:text-gray-400">
-       ✅ Here are the list of shorthand slides with the most downloads and usecases. 
+       ✅ Here are the list of shorthand slides with the most downloads and usecases.
       </p>
 
 
@@ -213,7 +220,7 @@ const Books = () => {
       {loading && (
         <div className="grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-3">
 
-     
+
           {[1 , 2 , 3 ,4 ,5 , 6, 7, 8].map((x) => {
             return (
               <div key={x} className="">
@@ -223,18 +230,18 @@ const Books = () => {
 
             )
           })}
-          
+
 
 
         </div>
 
-        
-          
+
+
 
       )}
       <div className="flex flex-col items-center justify-center">
 
-     
+
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2  lg:grid-col-2  xl:grid-cols-3">
 
       {filtered.length == 0 && (
@@ -245,11 +252,11 @@ const Books = () => {
       {filtered.map((file) => {
         return (
           <BookCard file={file} key={file.id} />
-          
+
 
        // th
-          
-          
+
+
         )
       })}
       </div>
