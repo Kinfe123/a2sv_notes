@@ -17,7 +17,7 @@ import Jobs from './pages/Jobs'
 import ComingSoon from './pages/ComingSoon'
 import Footer from './Components/Footer';
 import Contact from './pages/Contact'
-import TestNavBar from './Components/TestNavBar'
+// import TestNavBar from './Components/TestNavBar'
 
 function App() {
 
@@ -35,6 +35,7 @@ function App() {
 
         <Navbar />
       {/*<TestNavBar />*/}
+        //
       </div>
       <Routes>
         <Route path='/books' element={<Books />} />
