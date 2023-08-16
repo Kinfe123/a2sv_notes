@@ -2,6 +2,7 @@ import {useState , useEffect} from 'react'
 import SkeletonLoader from "../Components/Skeleton";
 import JobCard from "../Components/JobCard";
 import {Helmet} from 'react-helmet'
+import jobs from "../../server/jobs.json"
 const Jobs = () => {
     const api = import.meta.env.VITE_APP_API_JOBS
     // console.log(api)
@@ -9,34 +10,34 @@ const Jobs = () => {
     const [search , setSearch] = useState("")
     const [loading , setLoading] = useState(false)
     const [filterJob , setFilterJob] = useState([])
-    const [jobs , setJobs] = useState([])
-    useEffect(() => {
-        const fetchedJobs = async () => {
-           try {
+    // const [jobs , setJobs] = useState([])
+    // useEffect(() => {
+    //     const fetchedJobs = async () => {
+    //        try {
 
 
 
-             setLoading(true)
+    //          setLoading(true)
 
-             const fetched = await fetch('./server/jobs.json')
-
-
-             const res = await fetched.json()
-
-             // console.log("The result of fetched data from the json data " + res)
-             // // setJobs(res)
+    //          const fetched = await fetch('./server/jobs.json')
 
 
-           }catch(e) {
-            console.log(e)
+    //          const res = await fetched.json()
+
+    //          // console.log("The result of fetched data from the json data " + res)
+    //          // // setJobs(res)
+
+
+    //        }catch(e) {
+    //         console.log(e)
 
 
 
-           }
-           setLoading(false);
-        }
-        fetchedJobs()
-    } , [])
+    //        }
+    //        setLoading(false);
+    //     }
+    //     fetchedJobs()
+    // } , [])
     // console.log(jobs)
     const filter = jobs.filter(job => job.Company.slice(0 , job.Company.indexOf('.')).toLowerCase().includes(search.toLowerCase())    )
 
