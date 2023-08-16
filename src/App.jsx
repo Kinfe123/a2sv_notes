@@ -37,14 +37,14 @@ function App() {
         <Route path='/books' element={<Books />} />
         <Route path='/' element={<Home />} />
         <Route path='/jobs' element={<Jobs/>} />
-        
+
 
           <Route path='/dashboard' element={
             <AdminCtx.Provider value={user}>
               <Dashboard />
             </AdminCtx.Provider>
           }/>
-        <Route path='*' element={<ComingSoon />} /> 
+        <Route path='*' element={<ComingSoon />} />
 
       </Routes>
 

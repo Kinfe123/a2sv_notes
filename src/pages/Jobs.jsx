@@ -1,6 +1,7 @@
 import {useState , useEffect} from 'react'
 import SkeletonLoader from "../Components/Skeleton";
 import JobCard from "../Components/JobCard";
+import {Helmet} from 'react-helmet'
 const Jobs = () => {
     const api = import.meta.env.VITE_APP_API_JOBS
     // console.log(api)
@@ -12,42 +13,51 @@ const Jobs = () => {
     useEffect(() => {
         const fetchedJobs = async () => {
            try {
-             
+
 
 
              setLoading(true)
 
-             const fetched = await fetch(api)
+             const fetched = await fetch('./server/jobs.json')
+
+
              const res = await fetched.json()
+
+             console.log("The result of fetched data from the json data " + res)
              setJobs(res)
-             
-     
+
+
            }catch(e) {
             console.log(e)
 
-            
+
 
            }
            setLoading(false);
         }
         fetchedJobs()
-    } , [])  
-
-    const filter = jobs.filter(job => job.company.slice(0 , job.company.indexOf('.')).toLowerCase().includes(search.toLowerCase())    )
+    } , [])
+    // console.log(jobs)
+    const filter = jobs.filter(job => job.Company.slice(0 , job.Company.indexOf('.')).toLowerCase().includes(search.toLowerCase())    )
 
     // console.log('The data : ' , jobs)
     return (
         <>
+        <Helmet>
+                <meta charSet="utf-8" />
+                <title>Jobs - Internship Opportunies</title>
+                <link rel="canonical" href="https://a2sv-notes.vercel.app/jobs" />
+            </Helmet>
 
         <div>
           <h1 className="m-10 mt-32 text-center mb-4 text-3xl font-extrabold text-gray-900 dark:text-black md:text-5xl lg:text-6xl">
         <span className=" text-center text-transparent bg-clip-text bg-gradient-to-r to-indigo-600 from-sky-400">
-          Explore Opportunies 
+          Explore Opportunies
         </span>{" "}
         💼.
       </h1>
       <p className="my-6 text-center text-lg font-normal text-indigo-600 lg:text-xl dark:text-gray-400">
-       ✅ Explore end to end opportunities where you can found and see your self in futures. 
+       ✅ Explore end to end opportunities where you can found and see your self in futures.
       </p>
 
 
@@ -97,7 +107,7 @@ const Jobs = () => {
       {loading && (
         <div className="grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-3">
 
-     
+
           {[1 , 2 , 3 ,4 ,5 , 6, 7, 8].map((x) => {
             return (
               <div key={x} className="">
@@ -107,20 +117,20 @@ const Jobs = () => {
 
             )
           })}
-          
+
 
 
         </div>
 
-        
-          
+
+
 
       )}
       <div className="flex flex-col items-center justify-center mx-14">
 
          <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-col-2  xl:grid-cols-3 gap-4">
 
-     
+
 
       {!loading && filter.length == 0 && (
         <div className="my-10">
@@ -128,15 +138,15 @@ const Jobs = () => {
         </div>
       )}
       {filter.map((job) => {
-        if(job.company){
+        if(job.Company){
 
           return (
             <div className=''>
               <JobCard key={job.application_link} job={job}  />
             </div>
-            
-      
-            
+
+
+
           )
         }
       })}
@@ -217,7 +227,7 @@ const Jobs = () => {
     </div>
 
 
-        
+
         </>
     )
 }

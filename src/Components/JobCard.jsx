@@ -1,6 +1,6 @@
 const JobCard = (props) => {
     console.log("Props: " , props.job)
-    const {Role , Location , application_link , company , date_posted} = props.job;
+    const {Role , Location , application_link , Company , date_posted} = props.job;
 
     return (
 
@@ -22,7 +22,7 @@ const JobCard = (props) => {
                       span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-red-500 to-yellow-500"></span> */}
                   </div>
                   <p className="mt-3 mb-3 font-normal text-gray-500 dark:text-gray-300">
-                    🏢 Campany - {company}
+                    🏢 Campany - {Company}
                   </p>
                   <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                     📍 {Location}
@@ -36,7 +36,7 @@ const JobCard = (props) => {
                         href={application_link}
                         target="blank"
                         className="cursor-pointer inline-flex items-center px-3 py-2 text-sm font-medium  text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                     
+
                         download
                         >
                        ✅ Apply 💼
@@ -44,8 +44,8 @@ const JobCard = (props) => {
                         </a>
 
                   </div>
-                    
-                    
+
+
 
                   <div className="flex flex-row justify-end items-center my-5">
                   <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">📅 Posted - {date_posted}</p>
@@ -54,11 +54,11 @@ const JobCard = (props) => {
                 </div>
               </div>
 
-            
-            
-           
-           
-            
+
+
+
+
+
 
           </div>
 
