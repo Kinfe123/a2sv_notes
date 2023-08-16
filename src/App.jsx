@@ -16,6 +16,8 @@ import AdminCtx from './hooks/adminContext';
 import Jobs from './pages/Jobs'
 import ComingSoon from './pages/ComingSoon'
 import Footer from './Components/Footer';
+import Contact from './pages/Contact'
+import TestNavBar from './Components/TestNavBar'
 
 function App() {
 
@@ -32,11 +34,14 @@ function App() {
       <div>
 
         <Navbar />
+      {/*<TestNavBar />*/}
       </div>
       <Routes>
         <Route path='/books' element={<Books />} />
         <Route path='/' element={<Home />} />
         <Route path='/jobs' element={<Jobs/>} />
+
+        <Route path='/contact' element={<Contact/>} />
 
 
           <Route path='/dashboard' element={

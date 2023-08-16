@@ -23,8 +23,8 @@ const Jobs = () => {
 
              const res = await fetched.json()
 
-             console.log("The result of fetched data from the json data " + res)
-             setJobs(res)
+             // console.log("The result of fetched data from the json data " + res)
+             // // setJobs(res)
 
 
            }catch(e) {
