@@ -17,6 +17,7 @@ import Jobs from './pages/Jobs'
 import ComingSoon from './pages/ComingSoon'
 import Footer from './Components/Footer';
 import Contact from './pages/Contact'
+import { ThemeProvider } from './components/theme-providers';
 // import TestNavBar from './Components/TestNavBar'
 
 function App() {

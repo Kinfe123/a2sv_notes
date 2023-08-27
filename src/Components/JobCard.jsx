@@ -1,5 +1,5 @@
 const JobCard = (props) => {
-    console.log("Props: " , props.job)
+    // console.log("Props: " , props.job)
     const {Role , Location , application_link , Company , date_posted} = props.job;
 
     return (
@@ -21,7 +21,7 @@ const JobCard = (props) => {
                       {/* <
                       span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-red-500 to-yellow-500"></span> */}
                   </div>
-                  <p className="mt-3 mb-3 font-normal text-gray-500 dark:text-gray-300">
+                  <p className="mt-4 mb-3 font-bold text-gray-500 dark:text-gray-300">
                     🏢 Campany - {Company}
                   </p>
                   <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">

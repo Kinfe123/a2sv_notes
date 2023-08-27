@@ -12,7 +12,7 @@ const Dashboard = () => {
     }
     return (
         <div className="">
-            <h1>Welcome  To Dashboard</h1>
+            <h1>Welcome to Admin and Use oinly page</h1>
 
         </div>
     )

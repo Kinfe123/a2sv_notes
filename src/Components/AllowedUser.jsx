@@ -53,7 +53,7 @@ const AllowedUser = () => {
 
     }
     return (
-        <div className="flex justify-center items-center text-xl font-bold  mt-3 flex-col w-full" >   
+        <div className="flex justify-center items-center text-xl font-bold  mt-20 flex-col w-full" >   
            <p className="font-medium text-gray-900"> ❌ You are not logging in with your institutional email from A2SV , Please if you have <a onClick={handleClick} className="font-semibold text-gray-900 underline decoration-blue-500 hover:cursor-pointer">Re-Log in</a></p> <br />
             <p className="mt-3 mb-3">Or</p> <br />
             
