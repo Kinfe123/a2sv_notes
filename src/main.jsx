@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.css'
 
 import { ClerkProvider } from '@clerk/clerk-react';
-import { ThemeProvider } from './components/theme-providers.jsx';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
 
   // <ThemeProvider attribute="class" defaultTheme="system" enableSystem>

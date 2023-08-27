@@ -4,9 +4,10 @@ import {Helmet} from 'react-helmet'
 import countries from "countries-list"
 import {useState} from 'react'
 import { supabase } from "../configs/supabaseClient"
+
 export default function Contact() {
 
-
+   
   // const [countries , setCountries]
   const [loading , setLoading] = useState(false)
   const [checked , setChecked] = useState(false)
