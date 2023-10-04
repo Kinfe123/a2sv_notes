@@ -1,7 +1,7 @@
 import {useState , useEffect} from 'react'
 import SkeletonLoader from "../Components/Skeleton";
 import JobCard from "../Components/JobCard";
-import jobs from '../../server/jobs.json'
+// import jobs from '../../server/jobs.json'
 import {Helmet} from 'react-helmet'
 const Jobs = () => {
     const api = import.meta.env.VITE_APP_API_JOBS
@@ -9,39 +9,47 @@ const Jobs = () => {
     // console.log("The jobs json data: " , jbs)
     const [search , setSearch] = useState("")
     const [loading , setLoading] = useState(false)
-    const [filterJob , setFilterJob] = useState([])
-    // const [jobs , setJobs] = useState([])
-    // useEffect(() => {
-    //     const fetchedJobs = async () => {
-    //        try {
+    const [jobs , setJobs] = useState([])
+    useEffect(() => {
+        const fetchedJobs = async () => {
+           try {
 
 
 
-    //          setLoading(true)
+             setLoading(true)
 
-    //          const fetched = await fetch(jbs)
+             const fetched = await fetch(api)
 
+             const res = await fetched.json()
+             setJobs(res)
 
-    //          const res = await fetched.json()
-
-    //          // console.log("The result of fetched data from the json data " + res)
-    //          // // setJobs(res)
-
-
-    //        }catch(e) {
-    //         console.log(e)
+             // console.log("The result of fetched data from the json data " + res)
+             // // setJobs(res)
 
 
+           }catch(e) {
+            console.log(e)
 
-    //        }
-    //        setLoading(false);
-    //     }
-    //     fetchedJobs()
-    // } , [])
-    // console.log(jobs)
-    const filter = jobs.filter(job => job.Company.slice(0 , job.Company.indexOf('.')).toLowerCase().includes(search.toLowerCase())    )
 
-    // console.log('The data : ' , jobs)
+
+           }
+           setLoading(false);
+        }
+        fetchedJobs()
+    } , [api])
+    var pos = [];
+ 
+    for (var i = 1; i <= 100; i++) {
+       pos.push(i);
+    }
+ 
+  
+
+  
+    const filter = jobs.filter(job => job.company_name.slice(0 , job.company_name.indexOf('.')).toLowerCase().includes(search.toLowerCase())    )
+    filter.sort((a , b) => {
+      return new Date(b.date_posted) - new Date(a.date_posted)
+    })
     return (
         <>
         <Helmet>
@@ -109,7 +117,7 @@ const Jobs = () => {
         <div className="grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-3">
 
 
-          {[1 , 2 , 3 ,4 ,5 , 6, 7, 8].map((x) => {
+          {pos.map((x) => {
             return (
               <div key={x} className="">
                 <SkeletonLoader />
@@ -139,11 +147,11 @@ const Jobs = () => {
         </div>
       )}
       {filter.map((job) => {
-        if(job.Company){
+        if(job.company_name){
 
           return (
             <div className=''>
-              <JobCard key={job.application_link} job={job}  />
+              <JobCard key={job.url} job={job}  />
             </div>
 
 

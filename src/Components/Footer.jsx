@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom"
 import { Coffee } from "lucide-react"
+import {Flex , Badge , Theme} from "@radix-ui/themes"
 const Footer = () => {
     return (
+      
         <div className="min-h-screen">
             <footer className="sticky top-[81vh]  bg-white rounded-lg shadow dark:bg-gray-900 m-4">
   <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
@@ -33,7 +35,7 @@ const Footer = () => {
           </Link>
         </li>
         <li>
-          <Link href="/contact" className="hover:underline">
+          <Link to="/contact" className="hover:underline">
             Contact
           </Link>
         </li>
@@ -41,7 +43,9 @@ const Footer = () => {
     </div>
     <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
     <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
-      © {new Date().getFullYear()}{" "}
+
+
+             © {new Date().getFullYear()}{" "}
       <a href="https://kinfish-owns-computer.vercel.app/" target="_blank" className="hover:underline">
         KiNFiSH
       </a>  
@@ -51,6 +55,8 @@ const Footer = () => {
 </footer>
 
         </div>
+
+    
     )
 }
 

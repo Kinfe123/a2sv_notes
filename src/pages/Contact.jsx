@@ -2,13 +2,15 @@
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import {Helmet} from 'react-helmet'
 import countries from "countries-list"
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import { supabase } from "../configs/supabaseClient"
+// import { Resend } from 'resend'
 
 export default function Contact() {
-
-   
-  // const [countries , setCountries]
+  //console.log("The env variables are: " , process.env.VITE_RESEND_API_KEY)
+  //const resend = new Resend(process.env.VITE_RESEND_API_KEY)
+  // const [countries , setCo
+  // untries]
   const [loading , setLoading] = useState(false)
   const [checked , setChecked] = useState(false)
   const [responseMsg , setResponseMsg] = useState("")
@@ -29,12 +31,13 @@ const countryCodes = Object.keys(countries.countries);
 
 const countryNames = countryCodes.map(code => countries.countries[code].name);
 
+
 // console.log(formValues)
 const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
     
-    
+
     try {
       const { data, error } = await supabase
       .from('contact_message')
