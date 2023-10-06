@@ -6,8 +6,8 @@ import { AtSign } from 'lucide-react'
 import { useNavigate } from "react-router-dom"
 import { UserPlus } from "lucide-react"
 import './Home.css'
-import { HeroSection } from "../components/hero"
-import { Background } from "../components/background"
+import { HeroSection } from "../page-components/hero"
+import { Background } from "../page-components/background"
 import OSSection from "../Components/oss"
 import Footer from "../Components/Footer"
 
