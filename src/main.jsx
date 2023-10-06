@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.css'
 
 import { ClerkProvider } from '@clerk/clerk-react';
-import { Background } from './components/background/index.jsx';
+
 import './assets/fonts/CalSans-SemiBold.ttf'
 ReactDOM.createRoot(document.getElementById('root')).render(
 
