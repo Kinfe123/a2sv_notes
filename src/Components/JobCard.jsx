@@ -1,5 +1,6 @@
 import { date_convert } from "../lib/datefunc"
 
+
 const JobCard = (props) => {
     // console.log("Props: " , props.job)
     // const {Role , Location , application_link , Company , date_posted} = props.job;

@@ -17,6 +17,7 @@ import Jobs from './pages/Jobs'
 import ComingSoon from './pages/ComingSoon'
 import Footer from './Components/Footer';
 import Contact from './pages/Contact'
+import { Background } from './components/background';
 
 //
 function App() {
@@ -32,10 +33,13 @@ function App() {
     <BrowserRouter>
 
       <div>
+      
+
+       
 
         <Navbar />
       {/*<TestNavBar />*/}
-        //
+
       </div>
       <Routes>
         <Route path='/books' element={<Books />} />
@@ -54,7 +58,7 @@ function App() {
 
       </Routes>
 
-      <Footer />
+      {/* <Footer /> */}
 
     </BrowserRouter>
   )
